@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,9 +31,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
-        Log.d("Amirbek22", String.valueOf(product.getProductText()));
+        String image = product.getProductImg();
+        String newText = image.substring(0, image.length() - 4);
+        String[] parts = newText.split("/");
+        String imageName = parts[parts.length - 1];
+
+        Log.d("Amirbek22", String.valueOf(imageName));
         holder.textViewProductText.setText(product.getProductText());
-        holder.textViewProductCost.setText(product.getProductCost());
+        holder.textViewProductCost.setInputType(product.getProductCost());
+        holder.imageView.setImageResource(holder.imageView.getContext().getResources().getIdentifier(
+                imageName,
+                "drawable",
+                holder.itemView.getContext().getPackageName()
+        ));
+
     }
 
     @Override
@@ -43,11 +55,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     static class ProductViewHolder extends RecyclerView.ViewHolder {
         TextView textViewProductText;
         TextView textViewProductCost;
+        ImageView imageView;
+        int index;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewProductText = itemView.findViewById(R.id.textViewProductText);
             textViewProductCost = itemView.findViewById(R.id.textViewProductCost);
+            imageView = itemView.findViewById(R.id.imagesItems);
         }
     }
 }

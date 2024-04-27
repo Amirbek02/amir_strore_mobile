@@ -2,24 +2,33 @@ package com.example.testproject.retrofit;
 
 public class Product {
     private int id;
+    private String productImg;
     private String productText;
-    private String productCost;
+    private int productCost;
 
-    public Product(int id, String productText, String productCost) {
+
+    public Product(int id,String productImg, String productText, int productCost) {
         this.id = id;
+        this.productImg = productImg;
         this.productText = productText;
         this.productCost = productCost;
+
     }
 
     public int getId() {
         return id;
+    }
+    public String getProductImg() {
+        return productImg;
     }
 
     public String getProductText() {
         return productText;
     }
 
-    public String getProductCost() {
+    public int getProductCost() {
         return productCost;
     }
+
+
 }

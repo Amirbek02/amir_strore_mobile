@@ -1,12 +1,10 @@
-<!-- activity_main.xml -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7F6FF"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
-
+    tools:context=".BasketActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,13 +52,11 @@
 
                     />
                 <ImageView
-                    android:id="@+id/heart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/heart"
                     android:layout_marginStart="20dp"/>
                 <ImageView
-                    android:id="@+id/profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/union"
@@ -76,7 +72,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="15dp"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,48 +81,16 @@
                 android:textSize="20dp"
                 android:text="Все кроссовки"
                 />
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bottom_border"
-                android:layout_marginStart="90dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingStart="20dp"
-                android:paddingLeft="100dp"
-                android:layout_gravity="center">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/loading"
-                    android:layout_gravity="center_vertical"
-                    />
-                <EditText
-                    android:layout_width="100dp"
-                    android:textSize="14dp"
-                    android:layout_marginStart="5dp"
-                    android:textColor="@color/_9d9d9d"
-                    android:text="Поиск..."
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:inputType="text" />
-            </LinearLayout>
+                android:text="Здесь пока пусто)))"
+                tools:ignore="MissingConstraints"
+                android:layout_marginTop="30dp"
+                android:textSize="30dp"
+                />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            />
-    </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>
